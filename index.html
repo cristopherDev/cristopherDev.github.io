@@ -3,9 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <title>Dev.C - Aprendiendo JS</title>
+    <style>
+        .react_text {
+            color: royalblue;
+        }
+    
+        .subtitulo {
+            font-style: italic;
+            color: lightgray;
+        }
+    </style>
 </head>
 <body>
-    <p>Primera prueba para el blog</p>
+    <br/>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4><span class="react_text">⚛ ReactJS</span> - Una libreria para usar JS de forma dinamia y practica</h4>
+                <p class="subtitulo">Tutorial by Cristopher [ JSDeveloper - LW TI ]</p>
+            </div>
+        </div>
+    </div>
+    <br/><br/>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <p>👉 Texto extraido de: <a href="https://es.reactjs.org">https://es.reactjs.org</a></p>
+            </div>
+            <div class="col-lg-12">
+                <h5>¿Que es ReactJS?</h5>
+                <p>React te ayuda a crear interfaces de usuario interactivas de forma sencilla. Diseña vistas simples para 
+                    cada estado en tu aplicación, y React se encargará de actualizar y renderizar de manera eficiente los 
+                    componentes correctos cuando los datos cambien.</p>
+            </div>
+            <div class="col-lg-12">
+                <h5>Basado en componentes:</h5>
+                <p>Crea componentes encapsulados que manejen su propio estado, y conviértelos en interfaces de usuario complejas.
+                    Ya que la lógica de los componentes está escrita en JavaScript y no en plantillas, puedes pasar datos de forma 
+                    sencilla a través de tu aplicación y mantener el estado fuera del DOM.</p>
+                <br/><br/>
+            </div>
+            <div class="col-lg-12">
+                <h5>¿Pero como y donde vamos a usar React para trabajar?</h5>
+                <p>1 .- Necesitamos tener instalado <a href="https://nodejs.org/en/">NodeJS</a></p>
+                <p>2 .- Creamos una carpeta para nuestro proyecto:  <code>mkdir aprendiendo-react-next</code></p>
+                <p>3 .- Nos movemos a nuestro proyecto:  <code>cd aprendiendo-react-next</code></p>
+                <p>4 .- Instalamos los siguientes modulos (paquetes) usando npm:  <code>npm install next react react-dom</code></p>
+                <p>4 .- Creamos nuestra carpeta pages:  <code>mkdir pages</code></p>
+                <p><b>NOTA: pages sera el lugar donde colocaremos nuestra estructura de componentes (paginas) un ejemplo seria: </b><code>./pages/index.js</code></p>
+                <p>Otro ejemplo podria ser una estructura de un blog<code>./pages/index.js ./pages/posts/mostrar_list_posts.js ./pages/comentarios/form_comentarios.js</code></p>
+                <br/>
+            </div>
+            <div class="col-lg-12">
+                <h5>¿Pero que es un componente?</h5>
+                <p>Nuestro primer <b>Componente</b> es una funcion (functional component) que muestra un texto de - Hola Developer:</p>
+            </div>
+            <iframe
+                src="https://carbon.now.sh/embed?bg=rgba(34%2C34%2C34%2C1)&t=blackboard&wt=none&l=auto&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%252F%252F%2520Libreria%2520de%2520react%2520para%2520manejar%2520un%2520state%2520o%2520varibla%250Aimport%2520%257B%2520useState%2520%257D%2520from%2520'react'%253B%250A%250A%252F%252F%2520Componente%2520llamado%2520saludo%250Afunction%2520Saludo()%2520%257B%250A%2520%2520%2509%252F%252F%2520Nuestro%2520state%2520con%2520el%2520string%2520%2522Developer%2522%250A%2509const%255Bnombre%252C%2520setNombre%255D%2520%253D%2520useState('Developer')%253B%250A%2520%2520%250A%2520%2520%2509%252F%252F%2520JSX%2520(tipo%2520html)%2520para%2520el%2520render%2520de%2520un%2520string%2520usando%2520%253Cp%253E%250A%2520%2520%2509return(%250A%2520%2520%2520%2520%2520%2520%253Cp%253EHola%2520%257Bnombre%257D%253C%252Fp%253E%250A%2520%2520%2520%2520)%250A%257D%250A%250A%252F%252F%2520Exportamos%2520nuestro%2520componente%2520para%2520poder%2520usarlo%2520o%2520mostrarlo%250Aexport%2520default%2520Saludo"
+                style="width: 673px; height: 474px; border:0; transform: scale(1); overflow:hidden;"
+                sandbox="allow-scripts allow-same-origin">
+            </iframe>
+
+            <div class="col-lg-12">
+                <h5>¿Ques es un state (useState - Hook ⚓ )?</h5>
+                <p>Podemos entender que un state es una varible que puede mutar bajo un criterio fue de asignar usando " = "
+                    si no aplicando um metodo para generar el evento de actualizacion de estado.
+                </p>
+                <pre><code class="language-js">
+                    /*
+                    * Usando un array tomamos las variables que son parte de la funcion useState
+                    * de esta forma nombre es el valor de la variable
+                    * y setNombre es una funcion para llevar acabo la "actualizacion" de la variable nombre
+                    */
+                    const[nombre, setNombre] = useState('');
+
+                    // Acceder a la variable o contenido del state
+                    console.log(nombre); // resultado: ''
+
+                    // Actualizar o hacer un set al la variable
+                    setNombre('Aprendiendo JS'); // actualizar
+                    console.log('Nuevo valor:', nombre); // resultado: Nuevo valor: Aprendiendo JS
+
+                    // Ejemplo usando el estate de una clase
+
+                    // Declarar el state nombre
+                    state = {
+                        nombre: ''
+                    }
+
+                    // Mostrar el contenido del state nombre
+                    console.log(this.state.nombre);
+
+                    // Actualizar el state nombre usando setState
+                    this.setState({ nombre: 'Aprendiendo JS' });
+
+                    // Mostrar el nuevo contenido
+                    console.log(`Nuevo valor: ${this.state.nombre}`);
+                </code></pre>
+                <br/>
+            </div>
+
+            <div class="col-lg-12">
+                <h5>🤔 ¿Pero el componente que es en si?</h5>
+                <p>
+                    Podemos decir que un componente es la representación de procesar props y states que se pasen a una funcion.
+                    para eso se usa el "template" JSX que en su tipeado es muy parecido al HTML.
+                </p>
+                <p>
+                    Vamos a crear un componente que muestre una lista de productos que son partes de un object llamado inventario 
+                    si contamos con la noción de los loops de JS podriamos resolverlo de difentes manera pero no vas a mostrar el 
+                    resultado usando un <code>console.log()</code> ya que contamos con el poder de JSX.
+                </p>
+                <p>Crearemos un carpeta en la raiz de nuestro proyecto: <code>mkdir components</code></p>
+                <p>Dentro de ella crearemos un archivo llamado: <code>./components/ListProducts.js</code></p>
+                <p>Ahora veamos la estructura de nuestro componente:</p>
+            </div>
+            <iframe
+                src="https://carbon.now.sh/embed?bg=rgba(34%2C34%2C34%2C1)&t=blackboard&wt=none&l=auto&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%252F%252F%2520Libreria%2520de%2520react%2520para%2520manejar%2520un%2520state%2520o%2520varibla%250Aimport%2520%257B%2520useState%2520%257D%2520from%2520'react'%253B%250A%250A%252F%252F%2520Componente%2520llamado%2520ListProducts%250Afunction%2520ListProducts()%2520%257B%250A%2520%2520%2509%252F%252F%2520Nuestro%2520state%2520con%2520un%2520array%2520%252F%2520objects%250A%2509const%255Blist%252C%2520setList%255D%2520%253D%2520useState(%255B%250A%2520%2520%2520%2520%2520%2520%257Bproduct%253A%2520'Leche'%252C%2520price%253A%252025%257D%252C%250A%2520%2520%2520%2520%2520%2520%257Bproduct%253A%2520'Pan'%252C%2520price%253A%252035%257D%252C%250A%2520%2520%2520%2520%2520%2520%257Bproduct%253A%2520'Jugo'%252C%2520price%253A%252030%257D%252C%250A%2520%2520%2520%2520%2520%2520%257Bproduct%253A%2520'Azucar'%252C%2520price%253A%252012%257D%252C%250A%2520%2520%2520%2520%2520%2520%257Bproduct%253A%2520'Jamon'%252C%2520price%253A%252049%257D%250A%2520%2520%2520%2520%255D)%253B%250A%2520%2520%250A%2520%2520%2509%252F%252F%2520JSX%2520(tipo%2520html)%2520para%2520el%2520render%2520de%2520nuestra%2520lista%250A%2520%2520%2509return(%250A%2520%2520%2520%2520%2520%2520%253Cdiv%253E%250A%2520%2520%2520%2520%2520%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%252F*%2520Vamos%2520a%2520insertar%2520un%2520fragmento%2520de%2520JS%2520para%2520recorrer%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520*%2520nuesta%2520lista%250A%2520%2520%2520%2520%2520%2520%2520%2520*%252F%250A%2520%2520%2520%2520%2520%2520%2520%2520Object.keys(list).map((product%252C%2520index)%2520%253D%253E%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%252F%252F%2520Vamos%2520a%2520regresar%2520cada%2520elemento%2520usando%2520una%2520etiqueta%2520%253Cp%253E%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520return(%253Cp%253EProducto%253A%2520%257Bproduct.product%257D%2520-%2520precio%2520%2524%257Bproduct.price%257D%2520%253C%252Fp%253E)%250A%2520%2520%2520%2520%2520%2520%2520%2520%257D)%250A%2520%2520%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520%2520%2520%253C%252Fdiv%253E%250A%2520%2520%2520%2520)%250A%257D%250A%250A%252F%252F%2520Exportamos%2520nuestro%2520componente%2520para%2520poder%2520usarlo%2520o%2520mostrarlo%250Aexport%2520default%2520Saludo"
+                style="width: 816px; height: 762px; border:0; transform: scale(1); overflow:hidden;"
+                sandbox="allow-scripts allow-same-origin">
+            </iframe>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-auto">
+                <br/>
+                <p>CpEt - 2020</p>
+            </div>
+            <div class="col-lg-2">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>
